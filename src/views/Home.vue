@@ -9,6 +9,7 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
+import JSEncrypt from "jsencrypt";
 
 import { registerUser } from "@/api/index";
 
@@ -23,6 +24,14 @@ export default {
         // 비즈니스 로직
         const data = await registerUser();
         console.table(data);
+
+        var encrypt = new JSEncrypt();
+        encrypt.setPublicKey(`MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDlOJu6TyygqxfWT7eLtGDwajtN
+FOb9I5XRb6khyfD1Yt3YiCgQWMNW649887VGJiGr/L5i2osbl8C9+WJTeucF+S76
+xFxdU6jE0NQ+Z+zEdhUTooNRaY5nZiu5PgDB0ED/ZKBUSLKL7eibMxZtMlUDHjm4
+gwQco1KRMDSmXSMkDwIDAQAB`);
+        var encrypted = encrypt.encrypt("목요일");
+        console.log("encrypted" + encrypted);
       } catch (error) {
         // 에러 핸들링할 코드
         console.log(error.response);
