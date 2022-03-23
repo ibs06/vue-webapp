@@ -3,12 +3,14 @@
     <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
     <button @click="submitForm">a</button>
+    <calendar />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
+import calendar from "@/components/CalendarComp.vue";
 import JSEncrypt from "jsencrypt";
 
 import { registerUser } from "@/api/index";
@@ -17,6 +19,7 @@ export default {
   name: "Home",
   components: {
     HelloWorld,
+    calendar,
   },
   methods: {
     async submitForm() {
